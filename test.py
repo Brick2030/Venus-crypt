@@ -12,12 +12,21 @@ def uniCharList(input): # Return unique symbols in givern line. Used for diction
 
     return uniList # Returns array
 
-def devideIntoWords(input):
+def devideIntoWords(input): # Splits (input) into word list
     return input.split()
 
-# TESTING
-print(uniCharList(message))
-print(devideIntoWords(message))
+
+
+def charIndexList(char, string): # Finds every index of char in string
+    indexList = []
+    
+    for i, val in enumerate(string):
+        if val == char: indexList.append(i)
+    return indexList
+
+# TESTING ####################################################################
+#print(uniCharList(message))
+print(charIndexList('a', message))
 
 
 
@@ -32,3 +41,4 @@ print(devideIntoWords(message))
 
 # Making uni-char list for dictionary and message (Completed)
 # Dividing string array into words (Completed)
+# Function that returns all char indexes from the input string (Completed)
