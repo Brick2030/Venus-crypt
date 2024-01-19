@@ -36,28 +36,38 @@ def encrypt(message, dictionary, separator): # Returns encrypted messange
         for chr in word:
             chr_indexs = charIndexList(chr, dictionary) # All char index in dictionary
             randomIndex = int(random.uniform(0, len(chr_indexs)))
-            #print((int(randomIndex)))
             encryptedMessage.append(str(chr_indexs[int(randomIndex)]))
 
-    return "-".join(encryptedMessage)
+    return separator.join(encryptedMessage)
+
+
+
+
+def decrypt(key, dictionary, separator):
+    keyword = key.split(separator)
+    decryptedMessage = []
+    for number in keyword:
+        decryptedMessage.append(dictionary[int(number)])
+
+
+
+
+    return separator.join(decryptedMessage)
+
+
+
+
 
 # TESTING ####################################################################
 #print(uniCharList(message))
-print(encrypt("hello hello", dictionary, '-'))
+
+key = encrypt("hello hello", dictionary, '-')
+print(key)
+msg = decrypt(key, dictionary, '-')
+print(msg)
+
 #print(Tools.devideIntoWords(message))
 
 
+# Separators must save spaces
 
-
-
-# Encrypting each words by changing it by each char to random number from position list
-# Deviding each word into char arrays, and assigning to them random index from index array
-# Better to have also option for connector chars
-
-
-# Making uni-char list for dictionary and message (Completed)
-# Dividing string array into words (Completed)
-# Function that returns all char indexes from the input string (Completed)
-# Functions that returns all indexes of a uni-char-list char in input (message)  (completed)
-
-# File separation (completed)
