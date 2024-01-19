@@ -25,17 +25,15 @@ def charIndexList(char, string): # Finds every index of char in string
         if val == char: indexList.append(i)
     return indexList
 
-def encrypt(message, dictionary, separator): # Returns encrypted messange
-    #message = message.replace(' ', separator)
-    #words = message.split() # Devide message into words
-    encryptedMessage = []
 
+
+def encrypt(message, dictionary, separator): # Returns encrypted messange
+    encryptedMessage = [] # Output
 
     for chr in message:
-        print(chr)
-        chr_indexs = charIndexList(chr, dictionary) # All char index in dictionary
-        randomIndex = int(random.uniform(0, len(chr_indexs)))
-        encryptedMessage.append(str(chr_indexs[int(randomIndex)]))
+        thisCharIndexs = charIndexList(chr, dictionary) # All char index in dictionary
+        randomIndex = int(random.uniform(0, len(thisCharIndexs)))
+        encryptedMessage.append(str(thisCharIndexs[int(randomIndex)]))
 
     return separator.join(encryptedMessage)
 
@@ -48,23 +46,18 @@ def decrypt(key, dictionary, separator): # Decryption
     for number in keyword:
         decryptedMessage.append(dictionary[int(number)])
 
-    return separator.join(decryptedMessage)
+    return "".join(decryptedMessage)
 
 
 
 
 
 # TESTING ####################################################################
-#print(uniCharList(message))
 
-key = encrypt("hello hello", dictionary, '-')
+key = encrypt("hello world", dictionary, '-')
 print(key)
-#msg = decrypt(key, dictionary, '-')
-#print(msg)
+msg = decrypt(key, dictionary, '-')
+print(msg)
 
-#print(Tools.devideIntoWords(message))
-
-
-# Separators must save spaces
 
 # Checking for missing chars before encryption.
