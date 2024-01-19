@@ -1,3 +1,6 @@
+#from Tools.py import devideIntoWords
+import Tools
+
 #message = input("Enter the message to encrypt:\n")
 message = "Autem numquam maiores et. Iure voluptate enim recusandae cum nihil quisquam. Unde est beatae sint ut dolorum nesciunt. Aut consequatur tenetur"
 message = message.lower()
@@ -12,8 +15,7 @@ def uniCharList(input): # Return unique symbols in givern line. Used for diction
 
     return uniList # Returns array
 
-def devideIntoWords(input): # Splits (input) into word list
-    return input.split()
+
 
 
 
@@ -26,8 +28,8 @@ def charIndexList(char, string): # Finds every index of char in string
 
 # TESTING ####################################################################
 #print(uniCharList(message))
-print(charIndexList('a', message))
-
+#print(charIndexList('a', message))
+print(Tools.devideIntoWords(message))
 
 
 
