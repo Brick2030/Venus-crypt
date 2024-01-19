@@ -1,5 +1,3 @@
-#from Tools.py import devideIntoWords
-import Tools
 import random
 
 #message = input("Enter the message to encrypt:\n")
@@ -28,7 +26,7 @@ def charIndexList(char, string): # Finds every index of char in string
     return indexList
 
 def encrypt(message, dictionary, separator): # Returns encrypted messange
-    message = message.replace(' ', separator) # ИСПОЛЬЗОВВАТЬ СЕПАРАТОР ФУНКЦИЮ
+    message = message.replace(' ', separator)
     words = message.split(separator) # Devide message into words
     encryptedMessage = []
 
@@ -43,14 +41,11 @@ def encrypt(message, dictionary, separator): # Returns encrypted messange
 
 
 
-def decrypt(key, dictionary, separator):
+def decrypt(key, dictionary, separator): # Decryption
     keyword = key.split(separator)
     decryptedMessage = []
     for number in keyword:
         decryptedMessage.append(dictionary[int(number)])
-
-
-
 
     return separator.join(decryptedMessage)
 
@@ -71,3 +66,4 @@ print(msg)
 
 # Separators must save spaces
 
+# Checking for missing chars before encryption.
