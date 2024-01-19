@@ -3,7 +3,7 @@ import random
 #message = input("Enter the message to encrypt:\n")
 message = "Autem numquam maiores et. Iure voluptate enim recusandae cum nihil quisquam. Unde est beatae sint ut dolorum nesciunt. Aut consequatur tenetur"
 message = message.lower()
-dictionary = "abcdefghijklmnopqrstuvwxyz-abcdefghijklmnopqrstuvwxyz"
+dictionary = " abcdefghijklmnopqrstuvwxyz-abcdefghijklmnopqrstuvwxyz"
 
 
 def uniCharList(input): # Return unique symbols in givern line. Used for dictionary and message later.
@@ -26,15 +26,16 @@ def charIndexList(char, string): # Finds every index of char in string
     return indexList
 
 def encrypt(message, dictionary, separator): # Returns encrypted messange
-    message = message.replace(' ', separator)
-    words = message.split(separator) # Devide message into words
+    #message = message.replace(' ', separator)
+    #words = message.split() # Devide message into words
     encryptedMessage = []
 
-    for word in words:
-        for chr in word:
-            chr_indexs = charIndexList(chr, dictionary) # All char index in dictionary
-            randomIndex = int(random.uniform(0, len(chr_indexs)))
-            encryptedMessage.append(str(chr_indexs[int(randomIndex)]))
+
+    for chr in message:
+        print(chr)
+        chr_indexs = charIndexList(chr, dictionary) # All char index in dictionary
+        randomIndex = int(random.uniform(0, len(chr_indexs)))
+        encryptedMessage.append(str(chr_indexs[int(randomIndex)]))
 
     return separator.join(encryptedMessage)
 
@@ -58,8 +59,8 @@ def decrypt(key, dictionary, separator): # Decryption
 
 key = encrypt("hello hello", dictionary, '-')
 print(key)
-msg = decrypt(key, dictionary, '-')
-print(msg)
+#msg = decrypt(key, dictionary, '-')
+#print(msg)
 
 #print(Tools.devideIntoWords(message))
 
