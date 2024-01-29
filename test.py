@@ -6,7 +6,7 @@ message = message.lower()
 dictionary = " abcdefghijklmnopqrstuvwxyz-.abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz-.,()/:;;';labcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz-abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz-abcdefghijklmnopqrstuvwxyz"
 
 
-key = core.encrypt(message, dictionary, '|')
+key = core.encrypt(message, dictionary, ':')
 print(key)
-msg = core.decrypt(key, dictionary, '|')
+msg = core.decrypt(key, dictionary, ':')
 print(msg)
