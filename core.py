@@ -1,11 +1,12 @@
 import random
 
-                                # Todo list
+# Todo list
+
 
 # Dictionary generator
 # Support file systems
 # Quick mode? Built in dictionaries?
-# Research on input settings
+# Research on input settingis
 
 
 def uniCharList(input): # Return unique symbols in givern line. Used for dictionary and message later.
@@ -31,6 +32,7 @@ def checkMissing(what, where): # Check if chars in WHAT exist in WHERE. Importan
     abort = False # True when any missing - aborts encryption to avoid crashing and outputs missing list. 
 
     for char in what:
+        if (missing.count(char) > 0): continue
         if (where.count(char) == 0):
             abort = True
             missing.append(char)

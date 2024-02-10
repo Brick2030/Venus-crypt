@@ -1,12 +1,16 @@
 import core
+import digen
 
 message = input("Enter the message to encrypt:\n")
 #message = "Autem numquam maiores et. Iure voluptate enim recusandae cum nihil quisquam. Unde est beatae sint ut dolorum nesciunt. Aut consequatur tenetur"
-message = message.lower()
-dictionary = " abcdefghijklmnopqrstuvwxyz-.abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz-.,()/:;;';labcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz-abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz-abcdefghijklmnopqrstuvwxyz"
+#message = message.lower()
 
 
-key = core.encrypt(message, dictionary, ':')
+
+key = core.encrypt(message, digen.gen(), '.')
 print(key)
-msg = core.decrypt(key, dictionary, ':')
+
+print('\n')
+
+msg = core.decrypt(key, digen.gen(), '.')
 print(msg)
