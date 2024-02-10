@@ -1,7 +1,7 @@
 import random
 
                                 # Todo list
-# Checking for missing chars before encryption. Maybe changing missing to random.
+
 # Dictionary generator
 # Support file systems
 # Quick mode? Built in dictionaries?
@@ -17,14 +17,35 @@ def uniCharList(input): # Return unique symbols in givern line. Used for diction
     return uniList # Returns array of unique chars
 
 
+
 def charIndexList(char, string): # Finds every index of char in string
     indexList = []
     for i, val in enumerate(string):
         if val == char: indexList.append(i)
-    
     return indexList
 
+
+
+def checkMissing(what, where): # Check if chars in WHAT exist in WHERE. Important.
+    missing = [] # List of missing for output
+    abort = False # True when any missing - aborts encryption to avoid crashing and outputs missing list. 
+
+    for char in what:
+        if (where.count(char) == 0):
+            abort = True
+            missing.append(char)
+
+    if (abort):
+        print("ERROR! Those chars from message are missing in dictionary!")
+        print(missing)
+        quit()
+
+
+
 def encrypt(message, dictionary, separator): # Returns encrypted messange
+    
+    checkMissing(message, dictionary)
+
     encryptedMessage = []
     for chr in message:
         thisCharIndexs = charIndexList(chr, dictionary) # All char index in dictionary
@@ -32,6 +53,8 @@ def encrypt(message, dictionary, separator): # Returns encrypted messange
         encryptedMessage.append(str(thisCharIndexs[int(randomIndex)]))
 
     return separator.join(encryptedMessage)
+
+
 
 def decrypt(key, dictionary, separator): # Decryption
     keyword = key.split(separator)
