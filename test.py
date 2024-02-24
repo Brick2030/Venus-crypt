@@ -1,16 +1,22 @@
 import core
 import digen
 
-message = input("Enter the message to encrypt:\n")
-#message = "Autem numquam maiores et. Iure voluptate enim recusandae cum nihil quisquam. Unde est beatae sint ut dolorum nesciunt. Aut consequatur tenetur"
-#message = message.lower()
+while(True):
+    choice = input("\n1) Encrypt:\n2) Decrypt:\n3) Exit:\n")
+    match choice:
+        case "1":
+            message = input("Enter the message to encrypt:\n")
+            key = core.encrypt(message, digen.gen(), '.')
+            print(key)
+        case "2":
+            key = input("Enter key to decrypt:\n")
+            msg = core.decrypt(key, digen.gen(), '.')
+            print(msg)
+        case "3":
+            quit()
+
+        case _:
+            print("Try again!\n")
 
 
 
-key = core.encrypt(message, digen.gen(), '.')
-print(key)
-
-print('\n')
-
-msg = core.decrypt(key, digen.gen(), '.')
-print(msg)
